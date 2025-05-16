@@ -1,0 +1,193 @@
+{% extends "./base.html" %}
+{% load static %}
+
+{% block title %}Mi pagina personal{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="../static/css/home.css">
+{% endblock %}
+
+{% block body %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid">
+        <a class="navbar-brand">Mi página personal</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Alternar navegación">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#formacion">Formación</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#hobbies">Pasatiempos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#cripto">Criptografía</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contacto">Contacto</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container text-center mb-5 py-3">
+    <img src="../static/imgs/mi_foto.jpg" alt="Mi Foto" class="profile-pic mb-3">
+    <h2 class="fw-bold">Angel Alexander Flores Camargo</h2>
+    <p class="text-muted">Estudiante de Ingeniería en Computación | ESCOM - IPN</p>
+    <a href="../static/CV_FloresCamargoAngel.pdf" target="_blank" class="btn btn-primary">Ver PDF</a>
+    <a href="" target="_blank" class="btn btn-primary">Ver llave pública</a>
+
+    <h4 class="mb-3 mt-5" id="formacion">Formación Académica</h4>
+    <div class="card mt-4 p-4">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <h5>Secundaria</h5>
+                        <p><strong>Escuela:</strong> Secundaria Oficial No. 966 Arturo Montiel Rojas</p>
+                        <p><strong>Duración:</strong> 3 años</p>
+                    </li>
+                    <li class="list-group-item">
+                        <h5>Preparatoria</h5>
+                        <p><strong>Escuela:</strong> CECyT 9 Juan de Dios Batíz - Instituto Politécnico Nacional</p>
+                        <p><strong>Duración:</strong> 3 años</p>
+                        <p><strong>Carrera:</strong> Técnico en Sistemas Digitales</p>
+                    </li>
+                    <li class="list-group-item">
+                        <h5>Universidad</h5>
+                        <p><strong>Escuela:</strong> ESCOM - Instituto Politécnico Nacional</p>
+                        <p><strong>Duración:</strong> 4 años (activo)</p>
+                        <p><strong>Carrera:</strong> Ingeniero en Sistemas Computacionales</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- hobbies -->
+    <h4 class="mb-3 mt-5" id="hobbies">Pasatiempos</h4>
+    <div id="hobbiesCarousel" class="carousel slide mt-5" data-bs-ride="carousel">
+        <div class="carousel-inner">
+
+            <div class="carousel-item active">
+                <div class="d-flex justify-content-center">
+                    <div class="card p-4 text-center" style="width: 22rem;">
+                        <img src="../static/imgs/conocer.jpg" class="card-img-top rounded mb-3" alt="Videojuegos">
+                        <h5 class="fw-bold">{{ hobbies.0.name }}</h5>
+                        <p class="card-text">{{ hobbies.0.description }}</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="carousel-item">
+                <div class="d-flex justify-content-center">
+                    <div class="card p-4 text-center" style="width: 22rem;">
+                        <img src="../static/imgs/gym.jpeg" class="card-img-top rounded mb-3" alt="Lectura">
+                        <h5 class="fw-bold">{{ hobbies.1.name }}</h5>
+                        <p class="card-text">{{ hobbies.1.description }}</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="carousel-item">
+                <div class="d-flex justify-content-center">
+                    <div class="card p-4 text-center" style="width: 22rem;">
+                        <img src="../static/imgs/rd2.jpg" class="card-img-top rounded mb-3" alt="Lectura">
+                        <h5 class="fw-bold">{{ hobbies.2.name }}</h5>
+                        <p class="card-text">{{ hobbies.2.description }}</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Botón izquierdo -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#hobbiesCarousel" data-bs-slide="prev">
+          <span class="fs-1 text-dark" aria-hidden="true" style="font-weight: bold;">&#8249;</span>
+          <span class="visually-hidden">Anterior</span>
+        </button>
+    
+        <!-- Botón derecho -->
+        <button class="carousel-control-next" type="button" data-bs-target="#hobbiesCarousel" data-bs-slide="next">
+          <span class="fs-1 text-dark" aria-hidden="true" style="font-weight: bold;">&#8250;</span>
+          <span class="visually-hidden">Siguiente</span>
+        </button>
+    </div>
+
+    <!-- hechos de la criptografia -->
+    <h4 class="mb-3 mt-5" id="cripto">Curiosidades de la Criptografía</h4>
+    <div id="criptoCarousel" class="carousel slide mt-5" data-bs-ride="carousel">
+        <div class="carousel-inner">
+
+            <div class="carousel-item active">
+                <div class="d-flex justify-content-center">
+                    <div class="card p-4 text-center" style="width: 22rem;">
+                        <img src="../static/imgs/julio_cesar.jpg" class="card-img-top rounded mb-3" alt="Videojuegos">
+                        <h5 class="fw-bold">{{ cryptoFacts.0.title }}</h5>
+                        <p class="card-text">{{ cryptoFacts.0.description }}</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="carousel-item">
+                <div class="d-flex justify-content-center">
+                    <div class="card p-4 text-center" style="width: 22rem;">
+                        <img src="../static/imgs/turing.jpg" class="card-img-top rounded mb-3" alt="Lectura">
+                        <h5 class="fw-bold">{{ cryptoFacts.1.title }}</h5>
+                        <p class="card-text">{{ cryptoFacts.1.description }}</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="carousel-item">
+                <div class="d-flex justify-content-center">
+                    <div class="card p-4 text-center" style="width: 22rem;">
+                        <img src="../static/imgs/https.jpg" class="card-img-top rounded mb-3" alt="Lectura">
+                        <h5 class="fw-bold">{{ cryptoFacts.2.title }}</h5>
+                        <p class="card-text">{{ cryptoFacts.2.description }}</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Botón izquierdo -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#criptoCarousel" data-bs-slide="prev">
+          <span class="fs-1 text-dark" aria-hidden="true" style="font-weight: bold;">&#8249;</span>
+          <span class="visually-hidden">Anterior</span>
+        </button>
+    
+        <!-- Botón derecho -->
+        <button class="carousel-control-next" type="button" data-bs-target="#criptoCarousel" data-bs-slide="next">
+          <span class="fs-1 text-dark" aria-hidden="true" style="font-weight: bold;">&#8250;</span>
+          <span class="visually-hidden">Siguiente</span>
+        </button>
+    </div>
+
+    <!-- contacto -->
+    <h4 class="mb-3 mt-5" id="contacto">Contacto</h4>
+    <section class="container my-5 p-4 bg-light rounded shadow">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+          <i class="bi bi-envelope-fill me-2 text-primary"></i>
+          <strong>Correo personal:</strong> flores.camargo.angel@gmail.com
+        </li>
+        <li class="list-group-item">
+          <i class="bi bi-telephone-fill me-2 text-success"></i>
+          <strong>Teléfono:</strong> +52 55 1142 6661
+        </li>
+        <li class="list-group-item">
+          <i class="bi bi-facebook me-2 text-primary"></i>
+          <strong>Facebook:</strong>
+          <a href="https://www.facebook.com/angel.camargo.188" target="_blank">facebook.com/angel.camargo.188</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+{% endblock %}
